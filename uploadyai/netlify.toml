@@ -1,21 +1,22 @@
 [build]
   publish = "."
-  functions = "netlify/functions"
+  functions = "vercel/functions"
 
 [functions]
   node_bundler = "esbuild"
 
 [[redirects]]
   from = "/payment/approve"
-  to = "/.netlify/functions/payment-approve"
+  to = "/.vercel/functions/payment-approve"
   status = 200
 
 [[redirects]]
   from = "/payment/complete"
-  to = "/.netlify/functions/payment-complete"
+  to = "/.vercel/functions/payment-complete"
   status = 200
 
 [[redirects]]
   from = "/payment/cancel"
-  to = "/.netlify/functions/payment-cancel"
+  to = "/.vercel/functions/payment-cancel"
   status = 200
+
