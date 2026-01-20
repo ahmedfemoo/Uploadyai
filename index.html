@@ -44,9 +44,9 @@
     // ======== API SERVER ========
     async function apiPost(path, payload) {
       const urlMap = {
-        "/payment/approve": "https://uploadyai.vercel.app/payment-approve",
-        "/payment/complete": "https://uploadyai.vercel.app/payment-complete",
-        "/payment/cancel": "https://uploadyai.vercel.app/payment-cancel"
+        "/payment/approve": "https://uploadyai.vercel.app/api/payment-approve",
+        "/payment/complete": "https://uploadyai.vercel.app/api/payment-complete",
+        "/payment/cancel": "https://uploadyai.vercel.app/api/payment-cancel"
       };
       const response = await fetch(urlMap[path], {
         method: "POST",
