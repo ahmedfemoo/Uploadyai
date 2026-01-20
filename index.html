@@ -178,13 +178,13 @@
     }
 
     async function apiPost(path, payload) {
-      const isNetlify = window.location.hostname.endsWith(".netlify.app") || window.location.hostname.endsWith(".netlify.live");
+      const isNetlify = window.location.hostname.endsWith(".vercel.app") || window.location.hostname.endsWith(".vercel.live");
       const functionMap = {
         "/payment/approve": "/.netlify/functions/payment-approve",
         "/payment/complete": "/.netlify/functions/payment-complete",
         "/payment/cancel": "/.netlify/functions/payment-cancel"
       };
-      const url = isNetlify && functionMap[path] ? functionMap[path] : path;
+      const url = isvercel && functionMap[path] ? functionMap[path] : path;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
