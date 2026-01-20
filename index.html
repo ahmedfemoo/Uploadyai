@@ -180,9 +180,10 @@
     async function apiPost(path, payload) {
       const isNetlify = window.location.hostname.endsWith(".netlify.app") || window.location.hostname.endsWith(".netlify.live");
       const functionMap = {
-        "/payment/approve": "/.netlify/functions/payment-approve",
-        "/payment/complete": "/.netlify/functions/payment-complete",
-        "/payment/cancel": "/.netlify/functions/payment-cancel"
+        apiPost("/payment/approve", { paymentId: paymentId, accessToken: accessToken });
+apiPost("/payment/complete", { paymentId: paymentId, txid: txid, accessToken: accessToken });
+apiPost("/payment/cancel", { paymentId: paymentId });
+    
       };
       const url = isNetlify && functionMap[path] ? functionMap[path] : path;
       const response = await fetch(url, {
